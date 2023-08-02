@@ -5,29 +5,29 @@
     <title>Bai_4</title>
 </head>
 <body>
-<canvas id = "canvas" width = "500" height = "500" style ="border:2px solid green"></canvas>
+<canvas id = "canvas" width = "500" height = "500" style ="border:2px solid red"></canvas>
 <script>
-    class Circle{
+    class Big_ball{
         x;
         y;
         radius;
         color;
 
-        constructor(x, y, radius, color) {
-            this.x = x;
-            this.y = y;
+        constructor(x_cor, y_cor, radius, color) {
+            this.x = x_cor;
+            this.y = y_cor;
             this.radius = radius;
             this.color = color;
         }
         createCircle(){
-            let ctx = document.getElementById("canvas").getContext("2d");
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
-            ctx.fillStyle = this.color;
-            ctx.fill();
+            let stuff = document.getElementById("canvas").getContext("2d");
+            stuff.beginPath();
+            stuff.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
+            stuff.fillStyle = this.color;
+            stuff.fill();
         }
     }
-    let circle = new Circle(50, 50, 80, '#000000');
+    let circle = new Big_ball(50, 50, 80, '#000000');
     circle.createCircle();
 </script>
 </body>
