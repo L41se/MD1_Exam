@@ -8,25 +8,20 @@
 </head>
 <body>
 <script>
-
-    function insertNumberToArray(array, x, index) {
-        if(index < 0 || index > array.length) {
-            return array;
-        } else {
-            let temp = array[index];
-            array[index] = x;
-            let len = array.length + 1;
-            for (let i = index + 1; i < len; i++) {
-                let temp1 = array[i];
-                array[i] = temp;
-                temp = temp1;
-            }
-            return array;
+    function tryRemoveFromArray(arr, index) {
+        if (index < 0 || index >= arr.length) {
+            return arr;
         }
+        for (let i = index; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
+            arr.splice(i);
+        }
+
+        return arr;
     }
-    let array = [1,3,5,7,8,2,4,9,10];
-    insertNumberToArray(array, 255, 3);
-    console.log(array);
+    let arr1 = [3,4,7,46,5,6,7,8,9];
+    console.log(tryRemoveFromArray(arr1))
+
 </script>
 </body>
 </html>

@@ -6,24 +6,17 @@
 </head>
 <body>
 <script>
-    function findAvg(scores) {
-        if (scores.length === 0) {
-            return 0;
+    function thirdHighestScore(scores) {
+        if (scores.length < 3) {
+            return null;
         }
-
-        let sum = 0;
-        for (let i = 0; i < scores.length; i++) {
-            sum += scores[i];
-        }
-
-        let average = sum / scores.length;
-        return average;
+        scores.sort(function(a, b) {
+            return b - a;
+        });
+        return scores[2];
     }
-
-
-    let testScores = [4,6,7,8,5,9];
-    let averageScore = findAvg(testScores);
-    document.write(averageScore)
+    let aar = [4,7,5,3,6,8,9];
+    console.log(thirdHighestScore(aar))
 </script>
 </body>
 </html>

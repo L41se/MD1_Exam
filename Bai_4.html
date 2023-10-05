@@ -7,28 +7,32 @@
 <body>
 <canvas id = "canvas" width = "500" height = "500" style ="border:2px solid red"></canvas>
 <script>
-    class Big_ball{
+    class Rectangle {
         x;
         y;
-        radius;
+        width;
+        height;
         color;
+        ctx;
 
-        constructor(x_cor, y_cor, radius, color) {
-            this.x = x_cor;
-            this.y = y_cor;
-            this.radius = radius;
+        constructor(x, y, width, height, color) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
             this.color = color;
+            this.ctx = document.getElementById('canvas').getContext('2d');
         }
-        createCircle(){
-            let stuff = document.getElementById("canvas").getContext("2d");
-            stuff.beginPath();
-            stuff.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
-            stuff.fillStyle = this.color;
-            stuff.fill();
-        }
-    }
-    let circle = new Big_ball(50, 50, 80, '#000000');
-    circle.createCircle();
+
+        draw() {
+            this.ctx.beginPath();
+            this.ctx.rect(this.x, this.y, this.width, this.height);
+            this.ctx.fillStyle = this.color;
+            this.ctx.fill();
+            this.ctx.closePath();
+        }}
+let Rectangle1 = new Rectangle(10,10,200,100,"#000000");
+    Rectangle1.draw()
 </script>
 </body>
 </html>
